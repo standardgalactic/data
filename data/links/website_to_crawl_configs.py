@@ -1,0 +1,111 @@
+medium_default_config = {
+    "table_wrapper_selector": "div.ae:nth-child(2)",
+    "row_selector_template": "article a",
+    "exclude_links": ['https://medium.com/tag/blockchain?source=user_profile--------------------blockchain-----------------'],
+    "use_selenium": True,
+}
+medium_publications = {
+    "Alcueca": "https://alcueca.medium.com/",
+    "Gauntlet": "https://medium.com/gauntlet-networks",
+    "Crocswap": "https://crocswap.medium.com/",
+    "Aestus": "https://medium.com/@aestus_relay",
+    "Dsl": "https://medium.com/@dsl_uiuc",
+    "Nashq": "https://medium.com/@nashqueue",
+    "Toni": "https://medium.com/@toni_w",
+    "Dragonfly": "https://www.medium.com/dragonfly-research",
+    "Obadia": "https://medium.com/@alexandreobadia",
+    "Skip": "https://medium.com/@skip_protocol",
+    "Initc3": "https://initc3org.medium.com/",
+    "Boneh": "https://medium.com/@boneh",
+    "Arrakis": "https://medium.com/arrakis-finance",
+    "Galois": "https://medium.com/galois-capital",
+    "Dydx": "https://medium.com/dydxderivatives",
+    "Bloqarl": "https://medium.com/@bloqarl",
+    "Balancer": "https://medium.com/balancer-protocol/",
+    "Tokemak": "https://medium.com/tokemak",
+    "Nethermind": "https://medium.com/nethermind-eth",
+    "Numerai": "https://medium.com/numerai/",
+    "Lambertguillaume": "https://lambert-guillaume.medium.com/",
+    "Dymension": "https://medium.com/@dymension/",
+    "CollabCurrency": "https://medium.com/collab-currency/",
+    "Okage": "https://medium.com/@0kage/",
+    "BrokkrFinance": "https://brokkrfinance.medium.com/",
+    "Cryptofairy": "https://medium.com/@cryptofairy/",
+    "Paraswap": "https://paraswap.medium.com/",
+    "OffchainLabs": "https://medium.com/offchainlabs/",
+    "ImmuneFi": "https://medium.com/immunefi/",
+    "BalancerProtocol": "https://medium.com/balancer-protocol/",
+    "NethermindEth": "https://medium.com/nethermind-eth/",
+    "DeFiDevin": "https://medium.com/@defidevin/",
+    "FigmentCapital": "https://figmentcapital.medium.com/",
+    "FenbushiCapital": "https://fenbushicapital.medium.com/",
+    "TitaniaResearch": "https://medium.com/@titania-research/",
+    "Rektoff": "https://medium.com/rektoff/",
+    "UmbrellaResearch": "https://medium.com/@umbrellaresearch/",
+    "ComposableFi": "https://composablefi.medium.com/",
+    "Auralshin": "https://medium.com/@auralshin/",
+    "Coinmonks": "https://medium.com/coinmonks/",
+    "Prestwich": "https://medium.com/@Prestwich/",
+    "Espressosys": "https://medium.com/@espressosys/",
+    "Simbro": "https://simbro.medium.com/",
+    "CitadelOne": "https://medium.com/citadel-one/",
+    "Connext": "https://medium.com/connext/",
+    "AmberGroup": "https://medium.com/amber-group/",
+    "Atise": "https://atise.medium.com/",
+    "GyroscopeProtocol": "https://medium.com/gyroscope-protocol/",
+    "EthereumOptimism": "https://medium.com/ethereum-optimism/",
+    "Pmcgoohan": "https://pmcgoohan.medium.com/",
+    "Flashbots": "https://medium.com/flashbots/",
+    "TokenFlowInsights": "https://medium.com/token-flow-insights/",
+    "Danrobinson": "https://medium.com/@danrobinson/",
+    "Keeperdao": "https://medium.com/keeperdao/",
+    "Starkware": "https://medium.com/starkware/",
+    "Jeancvllr": "https://jeancvllr.medium.com/",
+    "CambrialCapital": "https://medium.com/cambrial-capital/",
+    "Swlh": "https://medium.com/swlh/",
+    "Virgilgr": "https://medium.com/@virgilgr/",
+    "SummaTechnology": "https://medium.com/summa-technology/",
+    "Hayeah": "https://medium.com/@hayeah/",
+    "Weka": "https://weka.medium.com/",
+    "VitalikButerin": "https://medium.com/@VitalikButerin/",
+}
+
+specific_medium_publications = {
+    "Wintermute": {
+        "base_url": "https://medium.com/wintermute-trading",
+        "table_page_url": "https://medium.com/wintermute-trading",
+        "table_wrapper_selector": "section.u-marginTop30",
+        "row_selectors": [
+            "div.row > article",
+            "div.row > div > div > a",
+            # Add more selectors as needed based on the actual DOM structure
+        ],
+        "exclude_links": [
+            'https://medium.com/tag/blockchain?source=user_profile--------------------blockchain-----------------'
+        ],
+        "use_selenium": True,
+    },
+
+}
+
+sites_config = {
+    **{f"MediumPublication_{name}": {"base_url": url, "table_page_url": url, **medium_default_config} for name, url in medium_publications.items()},
+    **specific_medium_publications,
+    "Mechanism": {
+        "base_url": "https://www.mechanism.org/",
+        "table_page_url": "https://www.mechanism.org/",
+        "table_wrapper_selector": ".table-wrapper",
+        "row_selector_template": "a.table-row",
+    },
+    "Frontier": {
+        "base_url": "https://frontier.tech/",
+        "table_page_url": "https://frontier.tech/",
+        "table_wrapper_selector": "#block-05455506b5104fc08f4982f3a8948fea",
+        "row_selector_template": "a",
+        "exclude_links": [
+            "mailto:research@frontier.tech",
+            "https://twitter.com/FrontierDotTech",
+            "open-positions"
+        ]
+    },
+}
